@@ -75,6 +75,7 @@
     <Project Path="Templates/Reqnroll.Templates.DotNet/Reqnroll.Templates.DotNet.csproj" />
   </Folder>
   <Folder Name="/Tests/">
+    <Project Path="StepArgumentTransformationInTableCells/StepArgumentTransformationInTableCells.csproj" Id="2d6a5860-9f09-41fc-817d-75fbf0a03878" />
     <Project Path="Tests/Reqnroll.Formatters.Tests/Reqnroll.Formatters.Tests.csproj" />
     <Project Path="Tests/Reqnroll.Specs/Reqnroll.Specs.csproj" />
     <Project Path="Tests/Reqnroll.SystemTests/Reqnroll.SystemTests.csproj" />
