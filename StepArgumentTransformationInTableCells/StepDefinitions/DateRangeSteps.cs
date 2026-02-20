@@ -10,6 +10,15 @@ namespace StepArgumentTransformationInTableCells.StepDefinitions
 
         [StepArgumentTransformation(@"in (\d+) days?")]
         internal DateTime In_Days(int days) => DateTime.Today.AddDays(days);
+
+        [StepArgumentTransformation("now")]
+        internal DateTime Now() => DateTime.Now;
+
+        [StepArgumentTransformation("today")]
+        internal DateTime Today() => DateTime.Today;
+
+        [StepArgumentTransformation("yesterday")]
+        internal DateTime Yesterday() => DateTime.Today.AddDays(-1);
     }
 
     public class DateRange
