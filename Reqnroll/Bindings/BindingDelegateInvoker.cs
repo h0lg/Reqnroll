@@ -23,6 +23,14 @@ namespace Reqnroll.Bindings
             // (The binding classes are created as part of the 'bindingDelegate' this method receives.
             return await InvokeInExecutionContext(executionContext?.Value, () =>
             {
+                // Pre-capture: refresh holder.Value immediately upon entering the established
+                // execution context, before the delegate runs. This ensures any synchronous
+                // re-entrant call to InvokeDelegateAsync (e.g. a sync step body that blocks on
+                // converter.ConvertAsync().Result) gets a fresh, unconsumed ExecutionContext
+                // rather than the instance already being applied by the outer Run call.
+                if (executionContext != null)
+                    executionContext.Value = ExecutionContext.Capture();
+
                 try
                 {
                     return CreateDelegateInvocationTask(bindingDelegate, invokeArgs);
